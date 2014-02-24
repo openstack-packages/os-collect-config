@@ -1,6 +1,6 @@
 Name:			os-collect-config
 Version:		0.1.11
-Release:		3%{?dist}
+Release:		4%{?dist}
 Summary:		Collect and cache metadata running hooks on changes
 
 License:		ASL 2.0
