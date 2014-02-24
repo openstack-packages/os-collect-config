@@ -13,6 +13,15 @@
 #    under the License.
 
 
-import pbr.version
+class VersionInfo(object):
+    release = "REDHATOSCOLLECTCONFIGRELEASE"
+    version = "REDHATOSCOLLECTCONFIGVERSION"
 
-version_info = pbr.version.VersionInfo('os-collect-config')
+    def version_string(self):
+        return self.version
+
+    def release_string(self):
+        return self.release
+
+version_info = VersionInfo()
+version_string = version_info.version_string
