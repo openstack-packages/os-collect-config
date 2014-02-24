@@ -8,6 +8,8 @@ URL:			http://pypi.python.org/pypi/%{name}
 Source0:		http://tarballs.openstack.org/%{name}/%{name}-%{version}.tar.gz
 Source1:		os-collect-config.service
 
+Patch0001: 0001-Remove-pbr-runtime-dependency-and-replace-with-build.patch
+
 BuildArch:		noarch
 BuildRequires:		python-setuptools
 BuildRequires:		python2-devel
@@ -35,6 +37,12 @@ Service to collect openstack heat metadata.
 
 %setup -q -n %{name}-%{version}
 
+%patch0001 -p1
+
+sed -i '/setuptools_git/d' setup.py
+sed -i s/REDHATOSCOLLECTCONFIGVERSION/%{version}/ os_collect_config/version.py
+sed -i s/REDHATOSCOLLECTCONFIGRELEASE/%{release}/ os_collect_config/version.py
+
 %build
 %{__python} setup.py build
 
@@ -59,6 +67,9 @@ install -p -D -m 644 %{SOURCE1} %{buildroot}%{_unitdir}/os-collect-config.servic
 %{_unitdir}/os-collect-config.service
 
 %changelog
+* Mon Feb 24 2014 Steven Dake <sdake@redhat.com> - 0.1.11-4
+- Make runtime version calculation instead of using python-pbr
+
 * Thu Feb 20 2014 Steven Dake <sdake@redhat.com> - 0.1.11-3
 - Added missing dependency python-anyjson
 - Added missing build requires python-pbr
