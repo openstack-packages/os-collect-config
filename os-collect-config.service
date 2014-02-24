@@ -1,0 +1,11 @@
+[Unit]
+Description=Collect metadata and run hook commands.
+After=cloud-final.service
+Before=crond.service
+
+[Service]
+ExecStart=/usr/bin/os-collect-config
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
