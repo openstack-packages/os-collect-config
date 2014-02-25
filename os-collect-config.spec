@@ -70,7 +70,7 @@ install -p -D -m 644 %{SOURCE2} %{buildroot}%{_sysconfdir}/os-collect-config.con
 %{_unitdir}/os-collect-config.service
 
 %changelog
-* Tue Feb 24 2014 Steven Dake <sdake@redhat.com> - 0.1.11-5
+* Tue Feb 25 2014 Steven Dake <sdake@redhat.com> - 0.1.11-5
 - install a os-collect-config default conf file
 
 * Mon Feb 24 2014 Steven Dake <sdake@redhat.com> - 0.1.11-4
