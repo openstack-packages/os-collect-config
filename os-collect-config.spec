@@ -1,12 +1,13 @@
 Name:			os-collect-config
 Version:		0.1.11
-Release:		4%{?dist}
+Release:		5%{?dist}
 Summary:		Collect and cache metadata running hooks on changes
 
 License:		ASL 2.0
 URL:			http://pypi.python.org/pypi/%{name}
 Source0:		http://tarballs.openstack.org/%{name}/%{name}-%{version}.tar.gz
 Source1:		os-collect-config.service
+Source2:		os-collect-config.conf
 
 Patch0001: 0001-Remove-pbr-runtime-dependency-and-replace-with-build.patch
 
@@ -49,6 +50,7 @@ sed -i s/REDHATOSCOLLECTCONFIGRELEASE/%{release}/ os_collect_config/version.py
 %install
 %{__python} setup.py install -O1 --skip-build --root %{buildroot}
 install -p -D -m 644 %{SOURCE1} %{buildroot}%{_unitdir}/os-collect-config.service
+install -p -D -m 644 %{SOURCE2} %{buildroot}%{_sysconfdir}/os-collect-config.conf
 
 %post
 %systemd_post os-collect-config.service
@@ -63,10 +65,14 @@ install -p -D -m 644 %{SOURCE1} %{buildroot}%{_unitdir}/os-collect-config.servic
 %doc README.rst
 %doc LICENSE
 %{_bindir}/os-collect-config
+%config(noreplace) %attr(-, root, root) %{_sysconfdir}/os-collect-config.conf
 %{python_sitelib}/os_collect_config*
 %{_unitdir}/os-collect-config.service
 
 %changelog
+* Tue Feb 24 2014 Steven Dake <sdake@redhat.com> - 0.1.11-5
+- install a os-collect-config default conf file
+
 * Mon Feb 24 2014 Steven Dake <sdake@redhat.com> - 0.1.11-4
 - Make runtime version calculation instead of using python-pbr
 
