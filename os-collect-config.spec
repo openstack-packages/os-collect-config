@@ -1,6 +1,6 @@
 Name:			os-collect-config
 Version:		0.1.11
-Release:		5%{?dist}
+Release:		6%{?dist}
 Summary:		Collect and cache metadata running hooks on changes
 
 License:		ASL 2.0
@@ -70,6 +70,9 @@ install -p -D -m 644 %{SOURCE2} %{buildroot}%{_sysconfdir}/os-collect-config.con
 %{_unitdir}/os-collect-config.service
 
 %changelog
+* Sat Jun 07 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.1.11-6
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_21_Mass_Rebuild
+
 * Tue Feb 25 2014 Steven Dake <sdake@redhat.com> - 0.1.11-5
 - install a os-collect-config default conf file
 
