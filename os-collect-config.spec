@@ -20,7 +20,9 @@ BuildRequires:		python-pbr
 Requires:		python-setuptools
 Requires:		python-argparse
 Requires:		python-anyjson
+Requires:		python-dogpile-cache
 Requires:		python-eventlet
+Requires:		python-heatclient
 Requires:		python-keystoneclient
 Requires:		python-requests
 Requires:		python-iso8601
@@ -70,6 +72,9 @@ install -p -D -m 644 %{SOURCE2} %{buildroot}%{_sysconfdir}/os-collect-config.con
 %{_unitdir}/os-collect-config.service
 
 %changelog
+* Tue Aug 19 2014 Derek Higgins <derekh@redhat.com> - XXX
+- Add dependency on python-dogpile-cache and python-heatclient
+
 * Sat Jun 07 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.1.11-6
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_21_Mass_Rebuild
 
