@@ -1,6 +1,6 @@
 Name:			os-collect-config
-Version:		0.1.11
-Release:		6%{?dist}
+Version:		XXX
+Release:		XXX{?dist}
 Summary:		Collect and cache metadata running hooks on changes
 
 License:		ASL 2.0
@@ -42,6 +42,10 @@ Service to collect openstack heat metadata.
 
 %patch0001 -p1
 
+#
+# patches_base: 0.1.11
+#
+
 sed -i '/setuptools_git/d' setup.py
 sed -i s/REDHATOSCOLLECTCONFIGVERSION/%{version}/ os_collect_config/version.py
 sed -i s/REDHATOSCOLLECTCONFIGRELEASE/%{release}/ os_collect_config/version.py
@@ -72,8 +76,16 @@ install -p -D -m 644 %{SOURCE2} %{buildroot}%{_sysconfdir}/os-collect-config.con
 %{_unitdir}/os-collect-config.service
 
 %changelog
-* Tue Aug 19 2014 Derek Higgins <derekh@redhat.com> - XXX
-- Add dependency on python-dogpile-cache and python-heatclient
+* Fri Sep 12 2014 James Slagle <jslagle@redhat.com> 0.1.28-1
+- Update to upstream 0.1.28
+- Add requires on python-dogpile-cache
+
+* Fri Sep 12 2014 James Slagle <jslagle@redhat.com> 0.1.21-1
+- Update to upstream 0.1.21
+- Add requires on python-heatclient
+
+* Thu Sep 11 2014 James Slagle <jslagle@redhat.com> - 0.1.11-7
+- Switch to rdopkg.
 
 * Sat Jun 07 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.1.11-6
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_21_Mass_Rebuild
