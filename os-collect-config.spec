@@ -58,6 +58,9 @@ sed -i s/REDHATOSCOLLECTCONFIGRELEASE/%{release}/ os_collect_config/version.py
 install -p -D -m 644 %{SOURCE1} %{buildroot}%{_unitdir}/os-collect-config.service
 install -p -D -m 644 %{SOURCE2} %{buildroot}%{_sysconfdir}/os-collect-config.conf
 
+# Delete tests
+rm -fr %{buildroot}%{python_sitelib}/os_collect_config/tests
+
 %post
 %systemd_post os-collect-config.service
 
