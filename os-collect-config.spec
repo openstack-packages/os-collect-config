@@ -68,7 +68,7 @@ rm -fr %{buildroot}%{python_sitelib}/os_collect_config/tests
 %systemd_preun os-collect-config.service
 
 %postun
-%systemd_postun_with_restart os-collect-config.service
+%systemd_postun os-collect-config.service
 
 %files
 %doc README.rst
