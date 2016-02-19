@@ -1,0 +1,7 @@
+Verified+1: rdo-ci-jenkins <whayutin+rdocijenkins@redhat.com>
+Code-Review+2: Alan Pevec <alan.pevec@redhat.com>
+Submitted-by: Alan Pevec <alan.pevec@redhat.com>
+Submitted-at: Fri, 19 Feb 2016 23:09:02 +0100
+Reviewed-on: https://review.gerrithub.io/263801
+Project: openstack-packages/os-collect-config
+Branch: refs/heads/rpm-master
