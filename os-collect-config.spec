@@ -1,11 +1,14 @@
+
+%{!?upstream_version: %global upstream_version %{version}%{?milestone}}
+
 Name:			os-collect-config
-Version:		XXX
-Release:		XXX
+Version:		0.1.37
+Release:		1%{?dist}
 Summary:		Collect and cache metadata running hooks on changes
 
 License:		ASL 2.0
 URL:			http://pypi.python.org/pypi/%{name}
-Source0:		http://tarballs.openstack.org/%{name}/%{name}-%{version}.tar.gz
+Source0:		http://tarballs.openstack.org/%{name}/%{name}-%{version}%{?milestone}.tar.gz
 Source1:		os-collect-config.service
 Source2:		os-collect-config.conf
 
@@ -79,3 +82,5 @@ rm -fr %{buildroot}%{python_sitelib}/os_collect_config/tests
 %{_unitdir}/os-collect-config.service
 
 %changelog
+* Thu Mar 31 2016 RDO <rdo-list@redhat.com> 0.1.37-1
+- RC1 Rebuild for Mitaka RC1 0.1.37
